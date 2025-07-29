@@ -137,7 +137,7 @@ public class EventListener implements Listener {
                             cancel();
                             return;
                         }
-                        furnaceBlock.getWorld().spawnParticle(Particle.LAVA, loc.clone().add(1.2, 0.5, 0.5), 2, 0.1, 0.1, 0.1, 0.01);
+                        furnaceBlock.getWorld().spawnParticle(Particle.LAVA, loc.clone().add(0.5, 1.2, 0.5), 2, 0.1, 0.1, 0.1, 0.01);
                     }
                 }.runTaskTimer(plugin, 0L, 40L); //every 40 ticks
                 particleTasks.put(loc, task);
