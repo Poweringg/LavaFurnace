@@ -1,6 +1,9 @@
 name: LavaFurnace
-version: '1.0'
+version: 1.0
 main: com.poweringg.lavaFurnace.LavaFurnace
+description: Furnaces, smokers, and blast furnaces that burn infinitely without any fuel. Just place fire or a bucket of lava next to them!
+author: Poweringg
+website: https://github.com/Poweringg/LavaFurnace
 api-version: '1.21'
 commands:
   lavafurnace:

@@ -1,31 +1,22 @@
 package com.poweringg.lavaFurnace;
 
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
+import java.util.Map;
+import java.util.HashMap;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.block.Furnace;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.inventory.InventoryMoveItemEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryHolder;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
+import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.block.Furnace;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
-
 import static org.bukkit.Bukkit.getLogger;
 
 import static com.poweringg.lavaFurnace.LavaFurnace.ALLOWED_IGNITION_SIDES;
@@ -80,13 +71,11 @@ public class EventListener implements Listener {
             case SMOKER -> "lavafurnace.use.smoker";
             default -> null;
         };
-        if (permission != null && !event.getPlayer().hasPermission(permission)) return;
+        if (!event.getPlayer().hasPermission(permission)) return;
 
-        //if furnacetype is furnace,smoker,blastfurnac, ignite it
-        if (furnaceType == InventoryType.FURNACE || furnaceType == InventoryType.BLAST_FURNACE || furnaceType == InventoryType.SMOKER) {
-            if(event.getInventory().getHolder() instanceof Furnace furnace) {
-                igniteFurnace(furnace, event.getPlayer().getName());
-            }
+        //if inventory type is furnace, ignite it
+        if (event.getInventory().getHolder() instanceof Furnace furnace) {
+            igniteFurnace(furnace, event.getPlayer().getName());
         }
     }
 
@@ -107,10 +96,8 @@ public class EventListener implements Listener {
         if (!isTypeAllowed) return;
 
         //if furnacetype is furnace,smoker,blastfurnac, ignite it
-        if (furnaceType == InventoryType.FURNACE || furnaceType == InventoryType.BLAST_FURNACE || furnaceType == InventoryType.SMOKER) {
-            if(event.getDestination().getHolder() instanceof Furnace furnace) {
-                igniteFurnace(furnace, "HOPPER");
-            }
+        if (event.getDestination().getHolder() instanceof Furnace furnace) {
+            igniteFurnace(furnace, "HOPPER");
         }
     }
 

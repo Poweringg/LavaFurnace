@@ -1,11 +1,8 @@
 package com.poweringg.lavaFurnace;
 
-import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
-import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.List;
 
 
 public final class LavaFurnace extends JavaPlugin {
@@ -37,7 +34,9 @@ public final class LavaFurnace extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new EventListener(), this);
 
-        getLogger().info("[LavaFurnace]: Plugin LavaFurnace by Poweringg has been enabled!");
+        PluginDescriptionFile pluginyml = this.getDescription();
+
+        getLogger().info("[LavaFurnace]: Plugin LavaFurnace v"+pluginyml.getVersion()+" by Poweringg has been enabled!");
     }
 
 
@@ -46,8 +45,6 @@ public final class LavaFurnace extends JavaPlugin {
     public void onDisable() {
         getLogger().info("[LavaFurnace]: Plugin LavaFurnace was disabled!");
     }
-
-
 
     public static LavaFurnace getInstance() {
         return instance;

@@ -1,16 +1,21 @@
-#If set to true, the furnace types below will be able to use infinite fuel
+#If set to true, the furnace will start detecting nearby materials that serve as an infinite fuel source.
 furnace: true
 blast-furnace: true
 smoker: true
 
-#these materials will be used as infinite fuel when placed next to the furnace
+#These materials will act as an infinite fuel source for furnaces. You can use any Minecraft material, e.g., SAND.
 fuel-materials:
   - LAVA
   - FIRE
-  - REDSTONE_BLOCK
 
-#misc
-burn-time: 1000
+#Defines how long the furnace keeps burning after being activated by a player or a hopper. (in Minecraft ticks)
+burn-time: 20000
+
+#Can be furnace automatically ignited when items are inserted via hopper?
 enable-hoppers: true
+
+#Should particle effects appear around the furnace while it's active?
 enable-particles: true
+
+#Display additional debug and furnace usage information in the console
 show-debug-in-console: true

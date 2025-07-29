@@ -20,13 +20,13 @@ public class Commands implements CommandExecutor {
                 return true;
             }
 
-            //plugin.reloadConfig();
+            //call config reload
             plugin.getConfigManager().reloadConfig();
             sender.sendMessage("§a[LavaFurnace]: Reload done.");
             return true;
         }
 
-        sender.sendMessage("§7Use: /lavafurnace reload");
+        sender.sendMessage("§7[LavaFurnace] Usage: /lavafurnace reload");
         return true;
     }
 }

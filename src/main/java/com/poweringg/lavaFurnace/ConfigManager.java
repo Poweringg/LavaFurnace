@@ -1,14 +1,12 @@
 package com.poweringg.lavaFurnace;
 
-import org.bukkit.Material;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.java.JavaPlugin;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-
+import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
 import static org.bukkit.Bukkit.getLogger;
 
 public class ConfigManager {
@@ -27,7 +25,6 @@ public class ConfigManager {
 
     public ConfigManager(JavaPlugin plugin) {
         this.plugin = plugin;
-        //loadConfig();
     }
 
 
@@ -55,7 +52,7 @@ public class ConfigManager {
                     try {
                         return Material.valueOf(name);
                     } catch (IllegalArgumentException e) {
-                        getLogger().warning("[LavaFurnace] Invalid material in config: " + name);
+                        getLogger().warning("[LavaFurnace]: Invalid material name in config 'fuel-materials': " + name);
                         return null;
                     }
                 })
@@ -75,7 +72,7 @@ public class ConfigManager {
     }
 
 
-    //reload configuration
+    //reload configuration, called via command
     public void reloadConfig() {
         plugin.reloadConfig();
         loadConfig();
