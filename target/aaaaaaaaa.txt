@@ -1,0 +1,105 @@
+package com.poweringg.lavaFurnace;
+
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.block.Furnace;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.inventory.InventoryMoveItemEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import java.util.Map;
+import java.util.HashMap;
+import org.bukkit.Particle;
+import org.bukkit.block.Block;
+import org.bukkit.block.Furnace;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
+
+import static com.poweringg.lavaFurnace.LavaFurnace.LAVA_MATERIAL;
+
+public class EventListener implements Listener {
+
+    JavaPlugin plugin = JavaPlugin.getProvidingPlugin(getClass());
+    private final Map<Location, BukkitTask> particleTasks = new HashMap<>();  //active particle effects
+
+
+    //when player open furnace
+    @EventHandler
+    public void onFurnaceOpen(InventoryOpenEvent event) {
+        igniteIfFurnace(event.getInventory());
+    }
+
+    //when hopper push items into furnace
+    @EventHandler
+    public void onHopperMoveToFurnace(InventoryMoveItemEvent event) {
+        igniteIfFurnace(event.getDestination());
+    }
+
+    private void igniteIfFurnace(Inventory inventory) {
+        if (inventory.getType() != InventoryType.FURNACE) return;
+
+        InventoryHolder holder = inventory.getHolder();
+        if (!(holder instanceof Furnace furnace)) return;
+
+        igniteFurnace(furnace);
+    }
+
+    private void igniteFurnace(Furnace furnace) {
+        Block furnaceBlock = furnace.getBlock();
+        Location loc = furnaceBlock.getLocation();
+        BlockFace[] sides = {BlockFace.NORTH, BlockFace.SOUTH, BlockFace.EAST, BlockFace.WEST}; //allowed fuel sides
+
+        //count lava sides for smelting speed multiplier
+        int lavaSides = 0;
+        for (BlockFace face : sides){
+            if (furnaceBlock.getRelative(face).getType() == LAVA_MATERIAL){
+                lavaSides++;
+            }
+        }
+
+        //if 1 or more sides is covered with lava, activate furnace
+        if(lavaSides > 0){
+            short baseBurnTime = 20000;
+            short speedMultiplier = (short) lavaSides;
+
+            furnace.setBurnTime((short) (baseBurnTime * speedMultiplier));
+            //furnace.setCookTime((short) 0);
+            //furnace.setCookTimeTotal((short) (200 / speedMultiplier));
+            furnace.update();
+        }
+
+        //repeat particles on furnace if not active
+        if (!particleTasks.containsKey(loc)) {
+            BukkitTask task = new BukkitRunnable() {
+                int ticks = 0;
+
+                @Override
+                public void run() {
+                    if (ticks++ > 100 || furnace.getBurnTime() <= 0) {
+                        particleTasks.remove(loc);
+                        cancel();
+                        return;
+                    }
+                    spawnFurnaceParticles(furnace);
+                }
+            }.runTaskTimer(plugin, 0L, 50L);
+            particleTasks.put(loc, task);
+        }
+    }
+
+
+    public static void spawnFurnaceParticles(Furnace furnace) {
+        Block block = furnace.getBlock();
+        Location loc = block.getLocation().add(0.5, 1.2, 0.5);
+        block.getWorld().spawnParticle(Particle.LAVA, loc, 2, 0.1, 0.1, 0.1, 0.01);
+    }
+
+
+
+}

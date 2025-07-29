@@ -1,0 +1,16 @@
+#If set to true, the furnace types below will be able to use infinite fuel
+furnace: true
+blast-furnace: true
+smoker: true
+
+#these materials will be used as infinite fuel when placed next to the furnace
+fuel-materials:
+  - LAVA
+  - FIRE
+  - REDSTONE_BLOCK
+
+#misc
+burn-time: 1000
+enable-hoppers: true
+enable-particles: true
+show-debug-in-console: true

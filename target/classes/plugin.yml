@@ -1,0 +1,25 @@
+name: LavaFurnace
+version: '1.0'
+main: com.poweringg.lavaFurnace.LavaFurnace
+api-version: '1.21'
+commands:
+  lavafurnace:
+    description: Main command for LavaFurnace plugin
+    usage: /lavafurnace [reload]
+    permission: lavafurnace.admin
+permissions:
+  lavafurnace.use.*:
+    description: Access to all lava furnace types
+    children:
+      lavafurnace.use.furnace: true
+      lavafurnace.use.blast: true
+      lavafurnace.use.smoker: true
+  lavafurnace.use.furnace:
+    description: Use normal furnace ignition
+    default: true
+  lavafurnace.use.blast:
+    description: Use blast furnace ignition
+    default: false
+  lavafurnace.use.smoker:
+    description: Use smoker ignition
+    default: false
