@@ -18,9 +18,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import static org.bukkit.Bukkit.getLogger;
-
 import static com.poweringg.lavaFurnace.LavaFurnace.ALLOWED_IGNITION_SIDES;
-
 
 public class EventListener implements Listener {
 
@@ -48,6 +46,7 @@ public class EventListener implements Listener {
             }
         }
     }
+
 
 
     //when player open inventory
@@ -78,6 +77,8 @@ public class EventListener implements Listener {
             igniteFurnace(furnace, event.getPlayer().getName());
         }
     }
+
+
 
     //when hopper push items into furnace
     @EventHandler
@@ -124,7 +125,7 @@ public class EventListener implements Listener {
             }
         }
 
-        //repeat particles on top of furnace if enabled
+        //repeat particles some time, if enabled
         if(config.cfg_enable_particles) {
             if (!particleTasks.containsKey(loc)) {
                 BukkitTask task = new BukkitRunnable() {
@@ -143,8 +144,6 @@ public class EventListener implements Listener {
             }
         }
     }
-
-
 
 
 

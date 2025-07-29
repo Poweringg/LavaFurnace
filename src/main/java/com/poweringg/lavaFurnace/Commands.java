@@ -7,10 +7,11 @@ import org.bukkit.command.CommandSender;
 public class Commands implements CommandExecutor {
 
     private final LavaFurnace plugin;
-
     public Commands(LavaFurnace plugin) {
         this.plugin = plugin;
     }
+
+
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

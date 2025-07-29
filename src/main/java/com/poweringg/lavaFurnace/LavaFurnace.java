@@ -4,7 +4,6 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
-
 public final class LavaFurnace extends JavaPlugin {
 
     private static LavaFurnace instance;
@@ -19,6 +18,7 @@ public final class LavaFurnace extends JavaPlugin {
             BlockFace.SOUTH,
             BlockFace.WEST
     };
+
 
 
     @Override
@@ -46,9 +46,13 @@ public final class LavaFurnace extends JavaPlugin {
         getLogger().info("[LavaFurnace]: Plugin LavaFurnace was disabled!");
     }
 
+
+
     public static LavaFurnace getInstance() {
         return instance;
     }
+
+
 
     public ConfigManager getConfigManager() {
         return configManager;

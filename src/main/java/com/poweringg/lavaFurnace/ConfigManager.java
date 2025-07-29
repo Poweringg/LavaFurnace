@@ -23,9 +23,11 @@ public class ConfigManager {
     public boolean cfg_debug;
 
 
+
     public ConfigManager(JavaPlugin plugin) {
         this.plugin = plugin;
     }
+
 
 
     //get and apply values from config
@@ -72,11 +74,13 @@ public class ConfigManager {
     }
 
 
+
     //reload configuration, called via command
     public void reloadConfig() {
         plugin.reloadConfig();
         loadConfig();
     }
+
 
 
 }
