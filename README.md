@@ -5,11 +5,11 @@ LavaFurnace is a lightweight Minecraft plugin designed to revolutionize how furn
 
 
 ## Features✨
-* 🔥 Supports Furnace, Smoker, and Blast Furnace out of the box
+* 🔥 Supports: **Furnace**, **Smoker**, and **Blast Furnace**
 
 * 🧱 Configure any block or liquid that, when placed next to a furnace, provides an infinite fuel source
 
-* ⚙️ Choose exactly which furnace types support infinite fuel, giving you full control over gameplay balance
+* ⚙️ Choose exactly which type of furnace will support infinite fuel
 
 * 🚀 Option to enable or disable automatic ignition of furnaces when items are inserted by hoppers
 
