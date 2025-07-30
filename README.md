@@ -25,6 +25,7 @@ You can find configuration file under folder **LavaFurnace/config.yml**
 | `furnace` | `true` | Enable support for normal Furnaces |
 | `smoker` | `true` | Enable support for Smokers |
 | `blast-furnace` | `true` | Enable support for Blast Furnaces |
+| `fuel-materials` | `- LAVA` | List of materials, which will act as an infinite fuel source for furnaces. [See more]([url](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html)). |
 
 
 ## Permissions
