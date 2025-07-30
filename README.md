@@ -1,4 +1,4 @@
-
+h
 # LavaFurnace 🔥 — Infinite Fuel for your Furnaces
 
 LavaFurnace is a lightweight Minecraft plugin designed to revolutionize how furnaces work. No more worrying about running out of coal or other fuel — simply place lava, fire, or any configurable block or liquid next to your furnace, and it will burn infinitely! This opens up new possibilities for automation and advanced furnace setups, making it perfect for survival servers or custom game modes that want to simplify smelting mechanics without losing immersion.
@@ -20,12 +20,16 @@ LavaFurnace is a lightweight Minecraft plugin designed to revolutionize how furn
 
 ## Configuration
 You can find configuration file under folder **LavaFurnace/config.yml**
-| Setting | Value     | Description                |
-| :-------- | :------- | :------------------------- |
+| Setting  | Default value     | Description                |
+| :---------------- | :------- | :--------------------- |
 | `furnace` | `true` | Enable support for normal Furnaces |
 | `smoker` | `true` | Enable support for Smokers |
 | `blast-furnace` | `true` | Enable support for Blast Furnaces |
-| `fuel-materials` | `- LAVA` | List of materials, which will act as an infinite fuel source for furnaces. See [material list](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html). |
+| `fuel-materials` | `- LAVA` | List of materials, which will act as an infinite fuel source for furnaces. Each material on new line, starting with a dash. See [material list](https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html). |
+| `burn-time` | `20000` | Defines how long the furnace keeps burning after being activated by a player or a hopper. (in Minecraft ticks) |
+| `enable-hoppers` | `true` | Enables support for hoppers. When a hopper move items into a furnace, the furnace will ignite automatically, if it has fuel material around it. |
+| `enable-particles` | `true` | If enabled, particles will appear on top of the furnace when it is lit. |
+| `show-debug-in-console` | `true` | Display additional debug and furnace usage information in the console |
 
 
 ## Permissions
