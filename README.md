@@ -1,6 +1,8 @@
 # LavaFurnace 🔥 — Infinite Fuel for your Furnaces
 
-LavaFurnace is a lightweight Minecraft plugin designed to revolutionize how furnaces work. No more worrying about running out of coal or other fuel — simply place lava, fire, or any configurable block or liquid next to your furnace, and it will burn infinitely! This opens up new possibilities for automation and advanced furnace setups, making it perfect for survival servers or custom game modes that want to simplify smelting mechanics without losing immersion.
+LavaFurnace is a lightweight Minecraft plugin designed to change how fuel in furnaces work. No more worrying about running out of coal or other fuel — simply place lava, fire, or any configurable block or liquid next to your furnace, and it will burn infinitely! This opens up new possibilities for automation and advanced furnace setups, making it perfect for survival servers or custom game modes that want to simplify smelting mechanics without losing immersion.
+
+<br/>
 
 **Tested Minecraft versions: 1.21.8 and newer.**
 
