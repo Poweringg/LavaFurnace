@@ -20,9 +20,11 @@ LavaFurnace is a lightweight Minecraft plugin designed to revolutionize how furn
 
 ## Configuration
 You can find configuration file under folder **LavaFurnace/config.yml**
-| Parameter | Type     | Description                |
+| Setting | Value     | Description                |
 | :-------- | :------- | :------------------------- |
-| `a` | `b` | c |
+| `furnace` | `true` | Enable support for normal Furnaces |
+| `smoker` | `true` | Enable support for Smokers |
+| `blast-furnace` | `true` | Enable support for Blast Furnaces |
 
 
 ## Permissions
