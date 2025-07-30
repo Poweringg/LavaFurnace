@@ -11,6 +11,9 @@ commands:
     usage: /lavafurnace [reload]
     permission: lavafurnace.admin
 permissions:
+  lavafurnace.admin:
+    description: Permission to use admin commands like /lavafurnace reload
+    default: op
   lavafurnace.use.*:
     description: Access to all lava furnace types
     children:
@@ -19,7 +22,7 @@ permissions:
       lavafurnace.use.smoker: true
   lavafurnace.use.furnace:
     description: Use normal furnace ignition
-    default: true
+    default: false
   lavafurnace.use.blast:
     description: Use blast furnace ignition
     default: false
