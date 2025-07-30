@@ -50,4 +50,4 @@ You can find configuration file under folder **LavaFurnace/config.yml**
 ## Commands
 | Command | Description |
 | :---------------- | :--------------------- |
-| `/lavafurnace reload` | Reloads and applies config. |
+| `/lavafurnace reload` | Reloads config. |
